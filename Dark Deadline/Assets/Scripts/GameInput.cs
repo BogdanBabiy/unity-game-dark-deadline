@@ -75,6 +75,18 @@ public class GameInput : MonoBehaviour
         Vector2 inputVector = playerInputActions.Player.Move.ReadValue<Vector2>();
         return inputVector.normalized;
     }
+    
+    public Vector2 GetTargetMovementVectorNormalised()
+    {
+        // if (KitchenGameManager.Instance.IsGameWaitingToStart()) return Vector2.zero;
+        Vector2 inputVector = playerInputActions.Player.MoveTarget.ReadValue<Vector2>();
+        return inputVector.normalized;
+    }
+
+    public bool IsUsingController()
+    {
+        return playerInputActions.Player.MoveTarget.inProgress;
+    }
 
     // public string GetBindingText(Binding binding)
     // {
